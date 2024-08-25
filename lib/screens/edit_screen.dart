@@ -33,7 +33,9 @@ class _EditScreenState extends State<EditScreen> {
         child: Container(
           height: MediaQuery.of(context).size.height * .9,
           child: Card(
-            color: Colors.white,
+            color: provider.mode==ThemeMode.light?
+            Colors.white:
+            MyThemeData.primaryDarkColor,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: SingleChildScrollView(
@@ -107,9 +109,7 @@ class _EditScreenState extends State<EditScreen> {
                     ),
                     InkWell(
                       onTap: () async {
-                        print(selectedDate);
                         DateTime? newDate = await chooseYourDate();
-                        print(newDate);
                         if (newDate != null) {
                           model.date = newDate.millisecondsSinceEpoch;
                           setState(() {

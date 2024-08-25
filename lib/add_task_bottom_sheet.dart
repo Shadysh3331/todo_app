@@ -99,7 +99,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 userId: FirebaseAuth.instance.currentUser?.uid?? "",
                   title: titleController.text,
                   description: descriptionController.text,
-                  date: DateUtils.dateOnly(selectedDate).microsecondsSinceEpoch
+                  date: DateUtils.dateOnly(selectedDate).millisecondsSinceEpoch
               );
               FirebaseFunctions.addTask(model).then((value) {
                 Navigator.pop(context);

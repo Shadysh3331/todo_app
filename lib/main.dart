@@ -18,7 +18,7 @@ void main()async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(ChangeNotifierProvider(
-      create: (context) => MyProvider(),
+      create: (context) => MyProvider()..getTheme(),
       child: EasyLocalization(
           supportedLocales: [Locale('en'), Locale('ar')],
           saveLocale: true,
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context)..getTheme();
+    var provider=Provider.of<MyProvider>(context);
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

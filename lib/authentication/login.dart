@@ -51,8 +51,8 @@ class LoginScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   FirebaseFunctions.loginUser(emailController.text, passwordController.text,
-                      onSuccess: (){
-                      provider.initUser();
+                      onSuccess: ()async{
+                     await provider.initUser();
                       Navigator.pushNamedAndRemoveUntil(context, HomeScreen.routName, (route) => false,);
                       }, onError: (error){
                     showDialog(context: context, builder: (context) => AlertDialog(
